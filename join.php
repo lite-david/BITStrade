@@ -3,8 +3,17 @@ session_start();
 
 if(isset($_POST['submit']))
 {
-	$nick=mysql_real_escape_string($_POST['nick']);
-	$password=mysql_real_escape_string($_POST['password']);
+
+	function validate($a)
+	{
+		$a=trim($a);
+		$a=strip_tags($a);
+		$a=mysql_real_escape_string($a);
+		return $a;
+	}
+	
+	$nick=validate($_POST['nick']);
+	$password=validate($_POST['password']);
 	
 	if( $nick && $password)
 	{
