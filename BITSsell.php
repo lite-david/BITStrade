@@ -37,7 +37,7 @@
 	<?php
 	if(isset($_GET['notify']))
 	{
-		echo "<br>".$_GET['notify'];
+		echo "<br>".htmlspecialchars($_GET['notify']);
 	} 
 	?>
 	
