@@ -16,7 +16,7 @@
 	<?php
 	if(isset($_GET['notify']))
 	{
-		echo $_GET['notify'];
+		echo htmlspecialchars($_GET['notify']);
 	} 
 ?>
 
