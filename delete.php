@@ -10,7 +10,7 @@
 session_start();
 $output='';
 	
-	$nick=$_SESSION['nick'];
+	$nick=mysql_real_escape_string($_SESSION['nick']);
 	
 	if($nick)
 	{
@@ -28,13 +28,13 @@ $output='';
 		{
 			while($l=mysql_fetch_array($query))
 			{
-				$nick=$l['nick'];
-				$product=$l['product'];
-				$hostel=$l['hostel'];
-				$details=$l['details'];
-				$number=$l['contact'];
-				$name=$l['name'];
-				$price=$l['price'];
+				$nick=htmlspecialchars($l['nick']);
+				$product=htmlspecialchars($l['product']);
+				$hostel=htmlspecialchars($l['hostel']);
+				$details=htmlspecialchars($l['details']);
+				$number=htmlspecialchars($l['contact']);
+				$name=htmlspecialchars($l['name']);
+				$price=htmlspecialchars($l['price']);
 				
 				
 				$output.='<div><form action="del.php" method="POST">nick: '.$nick.'<br> product: '.$product.'<input type="hidden" name="product" value="'.$product.'"><br>details: '.$details.'<br>price: '.$price.'<br> contact: '.$number.'<br>hostel:
