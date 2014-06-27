@@ -4,7 +4,15 @@ session_start();
 $output='';	
 if(isset($_GET['submit']))
 {
-	$search=mysql_real_escape_string($_GET['search']);
+	function validate($a)
+	{
+		$a=trim($a);
+		$a=strip_tags($a);
+		$a=mysql_real_escape_string($a);
+		return $a;
+	}
+	
+	$search=validate($_GET['search']);
 	
 	if($search)
 	{
@@ -23,13 +31,13 @@ if(isset($_GET['submit']))
 		{
 			while($l=mysql_fetch_array($query))
 			{
-				$nick=$l['nick'];
-				$product=$l['product'];
-				$hostel=$l['hostel'];
-				$details=$l['details'];
-				$number=$l['contact'];
-				$name=$l['name'];
-				$price=$l['price'];
+				$nick=htmlspecialchars($l['nick']);
+				$product=htmlspecialchars($l['product']);
+				$hostel=htmlspecialchars($l['hostel']);
+				$details=htmlspecialchars($l['details']);
+				$number=htmlspecialchars($l['contact']);
+				$name=htmlspecialchars($l['name']);
+				$price=htmlspecialchars($l['price']);
 				
 				
 				$output.='<div>nick: '.$nick.'<br> product: '.$product.'<br>details: '.$details.'<br>price: '.$price.'<br> contact: '.$number.'<br>hostel: '.$hostel.'</div><br><br>';
