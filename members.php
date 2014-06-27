@@ -52,11 +52,11 @@ else
 	<?php
 	if(isset($_GET['notify']))
 	{
-		echo $_GET['notify'];
+		echo htmlspecialchars($_GET['notify']);
 	} 
 	?>
 
-	<a href="delete.php"> cick here to delete your ad</a>
+	<a href="delete.php"> click here to delete your ad</a>
 	
 	
 </body>
