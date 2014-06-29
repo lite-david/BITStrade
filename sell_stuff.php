@@ -18,7 +18,7 @@ if(isset($_POST['submit']))
 	$details=validate($_POST['details']);
 	$price=validate($_POST['price']);
 	$number=validate($_POST['number']);
-	$nick=$_SESSION['nick'];
+	$nick=validate($_SESSION['nick']);
 	
 	if( $hostel && $product && $number)
 	{
