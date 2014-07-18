@@ -47,7 +47,7 @@ if(isset($_GET['submit']))
 		
 	else
 	{
-		header("location:BITSsell.php?notify=Enter a valid search term");
+		header("location:index.php?notify=Enter a valid search term");
 	}
 }
 ?>
