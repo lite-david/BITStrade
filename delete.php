@@ -9,12 +9,16 @@
 
 session_start();
 $output='';
+
+	$u='adminA7s7N4w';
+	$p='TIt39Fe3ggE5';
+
 	
 	$nick=mysql_real_escape_string($_SESSION['nick']);
 	
 	if($nick)
 	{
-		mysql_connect("127.0.0.1","root","") or die("Could not connect");
+		mysql_connect("bitstrade-li8.rhcloud.com","$u","$p") or die("Could not connect");
 		mysql_select_db("bitstrade");
 		$query= mysql_query("SELECT * FROM sell WHERE nick='$nick'");
 		$count= mysql_num_rows($query);
