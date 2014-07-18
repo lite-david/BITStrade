@@ -38,7 +38,7 @@ if(isset($_POST['login']))
 		
 		else
 		{
-			header("location:index.php? notify= incorrect nick and password combination");
+			header("location:http://localhost/BITSsell.php? notify= incorrect nick and password combination");
 				
 		}
 		
@@ -47,7 +47,7 @@ if(isset($_POST['login']))
 	
 	else
 	{
-		header("location:index.php? notify=Please fill both the fields");
+		header("location:http://localhost/BITSsell.php? notify=Please fill both the fields");
 	}
 	
 }

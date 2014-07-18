@@ -41,7 +41,7 @@ if(isset($_POST['submit']))
 	}
 	else
 	{
-	header("location:index.php? notify=Please fill both fields");
+	header("location:BITSsell.php? notify=Please fill both fields");
 	}
 }
 ?>
