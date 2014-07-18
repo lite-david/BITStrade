@@ -35,7 +35,7 @@ if(isset($_POST['login']))
 		{
 			$_SESSION['nick'] = $dbnick;
 			$_SESSION['password'] = $dbpassword;
-			header("location:http://localhost/members.php");
+			header("location:members.php");
 		}
 		
 		else
