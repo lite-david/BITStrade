@@ -14,12 +14,10 @@ if(isset($_POST['submit']))
 	
 	$nick=validate($_POST['nick']);
 	$password=validate($_POST['password']);
-	$u='adminA7s7N4w';
-	$p='TIt39Fe3ggE5';
 	
 	if( $nick && $password)
 	{
-		$connect=mysql_connect("bitstrade-li8.rhcloud.com","$u","$p") or die("Could not connect");
+		$connect=mysql_connect("127.0.0.1","root","") or die("Could not connect");
 		mysql_select_db("bitstrade");
 		$signup=mysql_query("SELECT * FROM users WHERE nick='$nick'");
 		$a=mysql_fetch_assoc($signup);
