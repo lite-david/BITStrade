@@ -20,12 +20,10 @@ if(isset($_POST['submit']))
 	$number=validate($_POST['number']);
 	$nick=validate($_SESSION['nick']);
 	
-	$u='adminA7s7N4w';
-	$p='TIt39Fe3ggE5';
 	
 	if( $hostel && $product && $number)
 	{
-		mysql_connect("bitstrade-li8.rhcloud.com","$u","$p") or die("could not connect");
+		mysql_connect("127.0.0.1","root","") or die("could not connect");
 		mysql_select_db("bitstrade");
 		mysql_query("INSERT INTO sell(nick,name,hostel,product,details,price,contact)VALUES('$nick','$name','$hostel','$product','$details','$price','$number')");
 		header("location:members.php?notify=Success");
