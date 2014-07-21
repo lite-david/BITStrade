@@ -13,12 +13,10 @@ if(isset($_GET['submit']))
 	}
 	
 	$search=validate($_GET['search']);
-	$u='adminA7s7N4w';
-	$p='TIt39Fe3ggE5';
 	
 	if($search)
 	{
-		mysql_connect("bitstrade-li8.rhcloud.com","$u","$p") or die("Could not connect");
+		mysql_connect("127.0.0.1","root","") or die("Could not connect");
 		mysql_select_db("bitstrade");
 		$search= preg_replace("#[^0-9a-z]#i","","$search");
 		$query= mysql_query("SELECT * FROM sell WHERE nick LIKE '%$search%' OR product LIKE '%$search%'");
