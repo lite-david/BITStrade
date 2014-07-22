@@ -1,27 +1,30 @@
-
-<html>
-<head>
-<link rel="stylesheet" type="text/css" href="style.css">
-</head>
-<body>
-
 <?php
 
 session_start();
-$output='';
+$output='';	
+if(isset($_GET['submit']))
+{
+	function validate($a)
+	{
+		$a=trim($a);
+		$a=strip_tags($a);
+		$a=mysql_real_escape_string($a);
+		return $a;
+	}
 	
-	$nick=mysql_real_escape_string($_SESSION['nick']);
+	$search=validate($_GET['search']);
 	
-	if($nick)
+	if($search)
 	{
 		mysql_connect("127.0.0.1","root","") or die("Could not connect");
 		mysql_select_db("bitstrade");
-		$query= mysql_query("SELECT * FROM sell WHERE nick='$nick'");
+		$search= preg_replace("#[^0-9a-z]#i","","$search");
+		$query= mysql_query("SELECT * FROM sell WHERE nick LIKE '%$search%' OR product LIKE '%$search%'");
 		$count= mysql_num_rows($query);
 		
 		if($count == 0)
 		{
-			echo "sorry you have no ad's";
+			echo "sorry nothing matched your search term!";
 		}
 		
 		else
@@ -37,8 +40,7 @@ $output='';
 				$price=htmlspecialchars($l['price']);
 				
 				
-				$output.='<div><form action="del.php" method="POST">nick: '.$nick.'<br> product: '.$product.'<input type="hidden" name="product" value="'.$product.'"><br>details: '.$details.'<br>price: '.$price.'<br> contact: '.$number.'<br>hostel:
-				'.$hostel.' <br><input type="submit" name="delete" value="delete" class="classname"> </form></div><br><br>';
+				$output.='<div>nick: '.$nick.'<br> product: '.$product.'<br>details: '.$details.'<br>price: '.$price.'<br> contact: '.$number.'<br>hostel: '.$hostel.'</div><br><br>';
 			}
 		}
 	}	
@@ -47,16 +49,10 @@ $output='';
 	{
 		header("location:index.php?notify=Enter a valid search term");
 	}
-
+}
 ?>
 <?php
 
 print("$output"); 
 ?>
-
-
-
-
-</body>
-</html>
 
