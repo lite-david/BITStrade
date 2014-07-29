@@ -8,7 +8,7 @@
 
 <body>
 	<div class="border"><h1><center> BITStrade </center> </h1>
-	<h3><center>Welcome to BITS Pilani, KK Birla, Goa campus' trading website.</center> <h3> </div>
+	<h3><center>Welcome to BITS Pilani, KK Birla, Goa campus trading website.</center> <h3> </div>
 	
 	<br>
 	<br>
